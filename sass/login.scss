@@ -1,0 +1,83 @@
+$width:100%;
+$margin:0 auto;
+//头部
+header {
+    width: $width;
+    height: 100px;
+    div {
+        width: 1238px;
+        height: 100px;
+        margin: $margin;
+        background-color: #cecece;
+        overflow: hidden;
+        img {
+            margin-top: 20px;
+            width: 213px;
+            height: 65px;
+            float: left;
+        }
+        b {
+            float: left;
+            margin-top: 43px;
+            display: block;
+            margin-left: 30px;
+            width: 120px;
+            height: 30px;
+            font-size: 30px;
+            color: #3b3b3b;
+        }
+        a {
+            float: right;
+            margin-top: 68px;
+            display: block;
+            width: 134px;
+            height: 14px;
+            font-size: 14px;
+            color: #999;
+            &:hover {
+                text-decoration: underline;
+                color: red;
+            }
+        }
+    }
+}
+
+//主体内容
+main {
+    width: $width;
+    height: 48px;
+    .anquan {
+        width: 1238px;
+        height: 48px;
+        background-color: #fff8f0;
+        margin: $margin;
+        text-align: center;
+        line-height: 48px;
+        color: #999;
+    }
+    nav {
+        margin: $margin;
+        width: 1238px;
+        height: 594px;
+        background: url(../image/login-banner.jpg) no-repeat center/cover;
+        overflow: hidden;
+        .login {
+            $width: 435px;
+            width: $width;
+            height: 532px;
+            margin-top: 13px;
+            float: right;
+            background-color: #fff;
+            .tishi {
+                width: $width;
+                height: 48px;
+                background-color: #fff8f0;
+            }
+            .login-q {
+                width: $width;
+                height: 68px;
+                border-bottom: 1px solid #f4f4f4;
+            }
+        }
+    }
+}

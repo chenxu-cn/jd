@@ -12,28 +12,10 @@ const rename = require("gulp-rename");
 const cleanCss = require("gulp-clean-css");
 //高版本转低版本
 const babel = require("gulp-babel");
+//转义压缩
+const sourcemaps = require("gulp-sourcemaps");
 
-//任务
-gulp.task("hello", done => {
-
-    console.log("hello gulp");
-
-    done();
-});
-gulp.task("hello1", done => {
-
-    console.log("hello1 gulp");
-
-    done();
-});
-
-//默认任务
-//gulp.task("default", gulp.series("hello", "hello1"));
-//gulp.task("default", gulp.parallel("hello", "hello1"));
-
-//拷贝单个文件
-
-//拷贝所有html文件
+//拷贝所有文件
 gulp.task("copyHtml", done => {
     gulp.src("html/**").pipe(gulp.dest("dist/html")).pipe(connect.reload());
     gulp.src("image/**").pipe(gulp.dest("dist/image")).pipe(connect.reload());
@@ -42,51 +24,6 @@ gulp.task("copyHtml", done => {
     done();
 });
 
-//拷贝同种类型的文件
-/* gulp.task("copyImg", done => {
-
-    gulp.src("img/*.jpg").pipe(gulp.dest("dist/img"));
-
-    done();
-
-}) */
-
-//拷贝不种类型的文件
-/* gulp.task("copyImg", done => {
-
-    gulp.src("img/*.{jpg,png}").pipe(gulp.dest("dist/img"));
-
-    done();
-
-}) */
-
-//拷贝所有的
-//拷贝同种类型的文件
-/* gulp.task("copyImg", done => {
-
-    gulp.src("img/**").pipe(gulp.dest("dist/img"));
-
-    done();
-
-}) */
-//将不同目录里的文件拷贝到同一目录下
-/* gulp.task("copy", done => {
-
-    gulp.src(["json/a.json", "xml/a.xml"]).pipe(gulp.dest("dist/data"));
-
-    done();
-}) */
-
-//build //同步
-gulp.task("build", gulp.parallel("copyHtml"));
-
-//监听
-gulp.task("watch", done => {
-
-    gulp.watch(["*.html", "html/**", "image/**"], gulp.series("copyHtml"));
-
-    done();
-})
 
 //搭建服务器
 gulp.task("server", done => {
@@ -97,86 +34,33 @@ gulp.task("server", done => {
     done();
 });
 
-gulp.task("default", gulp.series("server", "build", "watch"));
 
 //sass任务
 gulp.task("sass", done => {
 
-    gulp.src("sass/*.scss").pipe(sass()).pipe(gulp.dest("dist/css"))
+    gulp.src("sass/*.scss")
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: "compressed"
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("dist/css"))
+        .pipe(connect.reload());
 
     done();
 });
-//合并
-/* gulp.task("concat", done => {
 
-    gulp.src(["js/a.js", "js/b.js"])
-        .pipe(concat("main.js"))
-        .pipe(gulp.dest("dist/js"))
 
-    done();
-}); */
-//直接压缩 合并之后再压缩
-/* gulp.task("uglify1", done => {
+//监听
+gulp.task("watch", done => {
 
-    gulp.src("js/jquery-1.11.0.js")
-        .pipe(uglify())
-        .pipe(gulp.dest("dist/js"));
+    gulp.watch(["*.html", "html/**", "image/**"], gulp.series("copyHtml"));
+    gulp.watch("sass/*.scss", gulp.series("sass"));
 
     done();
-});
-gulp.task("uglify2", done => {
+})
 
-    gulp.src(["js/a.js", "js/b.js"])
-        .pipe(concat("main.js"))
-        .pipe(uglify())
-        .pipe(gulp.dest("dist/js"))
+//build //同步
+gulp.task("build", gulp.parallel("copyHtml", "sass"));
 
-    done();
-}); */
-//保留压缩前后的两个文件 重新命名
-/* gulp.task("rename", done => {
-
-    gulp.src(["js/a.js", "js/b.js"])
-        .pipe(concat("main.js"))
-        .pipe(gulp.dest("dist/js"))
-        .pipe(uglify())
-        .pipe(rename("main.min.js"))
-        .pipe(gulp.dest("dist/js"))
-
-    done();
-}); */
-
-//同时压缩多个文件，得到多个不同的文件名
-/* gulp.task("rename", done => {
-
-    gulp.src(["js/a.js", "js/b.js"])
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: ".min"
-        }))
-        .pipe(gulp.dest("dist/js"))
-
-    done();
-}); */
-//压缩css
-/* gulp.task("cleancss", done => {
-
-    gulp.src("css/login.css")
-        .pipe(cleanCss())
-        .pipe(gulp.dest("dist/css"));
-
-    done();
-}); */
-
-//babel
-/* gulp.task("babel", done => {
-
-    gulp.src('js/es6.js')
-        .pipe(babel({
-            presets: ['@babel/preset-env']
-        }))
-        .pipe(gulp.dest('dist'))
-
-
-    done();
-}) */
+gulp.task("default", gulp.series("server", "build", "watch"));
