@@ -1,5 +1,118 @@
-$fontSize:14px;
-body {
-    font-size: $fontSize;
-    background-color: red;
+$width:100%;
+$margin:0 auto;
+//头部
+header {
+    width: $width;
+    height: 80px;
+    background-color: rgb(2, 155, 151);
+    .advertis {
+        width: 1190px;
+        height: 80px;
+        margin: $margin;
+        img:nth-of-type(1) {
+            width: 190px;
+            height: 80px;
+            float: left;
+        }
+        img:nth-of-type(2) {
+            width: 800px;
+            height: 80px;
+            float: left;
+        }
+    }
+    // 导航栏
+    nav {
+        width: $width;
+        height: 30px;
+        border-bottom: 1px solid #ddd;
+        background-color: #e3e4e5;
+        .dingwei {
+            width: 1190px;
+            height: 30px;
+            margin: $margin;
+            line-height: 30px;
+            font-size: 12px;
+            color: #999;
+            position: relative;
+            .w {
+                width: 42px;
+                height: 28px;
+                display: block;
+                border: 1px solid transparent;
+                i {
+                    color: red;
+                }
+                b {
+                    display: inline-block;
+                    font-weight: 100;
+                }
+                &:hover {
+                    border: 1px solid #cecece;
+                    border-bottom: none;
+                    height: 30px;
+                    background: #ffffff;
+                }
+            }
+            .w:hover b {
+                color: red;
+            }
+            .w:hover .shengfen {
+                display: block;
+            }
+            .shengfen {
+                width: 250px;
+                height: 420px;
+                border: 1px solid #cecece;
+                border-top: 0;
+                position: absolute;
+                top: 30px;
+                padding-left: 15px;
+                display: none;
+                li {
+                    width: 50px;
+                    height: 20px;
+                    float: left;
+                    margin-top: 5px;
+                    line-height: 20px;
+                    a {
+                        color: #999;
+                        &:hover {
+                            color: red;
+                            background: #cecece;
+                        }
+                    }
+                }
+                .zhuanxiang {
+                    float: left;
+                    width: 230px;
+                    height: 100px;
+                    border-top: 1px solid #999;
+                    border-bottom: 1px solid #999;
+                    margin-top: 10px;
+                    span {
+                        display: inline-block;
+                        width: 100px;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+                .abc {
+                    float: left;
+                    margin-top: 10px;
+                    span {
+                        display: inline-block;
+                        width: 100px;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    height: 2000px;
 }
