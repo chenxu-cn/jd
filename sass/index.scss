@@ -37,8 +37,9 @@ header {
             .w {
                 width: 42px;
                 height: 28px;
-                display: block;
+                display: inline-block;
                 border: 1px solid transparent;
+                float: left;
                 i {
                     color: red;
                 }
@@ -52,6 +53,56 @@ header {
                     height: 30px;
                     background: #ffffff;
                 }
+                .shengfen {
+                    width: 250px;
+                    height: 420px;
+                    border: 1px solid #cecece;
+                    border-top: 0;
+                    position: absolute;
+                    top: 30px;
+                    padding-left: 15px;
+                    display: none;
+                    li {
+                        width: 50px;
+                        height: 20px;
+                        float: left;
+                        margin-top: 5px;
+                        line-height: 20px;
+                        a {
+                            color: #999;
+                            &:hover {
+                                color: red;
+                                background: #cecece;
+                            }
+                        }
+                    }
+                    .zhuanxiang {
+                        float: left;
+                        width: 230px;
+                        height: 100px;
+                        border-top: 1px solid #999;
+                        border-bottom: 1px solid #999;
+                        margin-top: 10px;
+                        span {
+                            display: inline-block;
+                            width: 100px;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                    }
+                    .abc {
+                        float: left;
+                        margin-top: 10px;
+                        span {
+                            display: inline-block;
+                            width: 100px;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                    }
+                }
             }
             .w:hover b {
                 color: red;
@@ -59,54 +110,86 @@ header {
             .w:hover .shengfen {
                 display: block;
             }
-            .shengfen {
-                width: 250px;
-                height: 420px;
-                border: 1px solid #cecece;
-                border-top: 0;
-                position: absolute;
-                top: 30px;
-                padding-left: 15px;
-                display: none;
+            // 导航
+            .nav-a {
+                float: right;
                 li {
-                    width: 50px;
-                    height: 20px;
+                    position: relative;
+                    font-size: 12px;
                     float: left;
-                    margin-top: 5px;
-                    line-height: 20px;
+                    &:nth-of-type(2n) {
+                        margin: 0 10px;
+                    }
+                    a:hover {
+                        color: red;
+                    }
+                    &:hover {
+                        color: #000000;
+                    }
+                    //下拉菜单
+                    .xiala {
+                        position: absolute;
+                        top: 30px;
+                        left: -1052px;
+                        margin: $margin;
+                        width: 1190px;
+                        height: 165px;
+                        border: 1px solid #000000;
+                        border-top: 0;
+                        display: none;
+                        padding: 15px;
+                        .yiji {
+                            width: 280px;
+                            height: 150px;
+                            border-right: 1px solid #000000;
+                            li {
+                                float: left;
+                                width: 60px;
+                            }
+                            &:nth-last-of-type(1) {
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+                .red a:nth-of-type(1) {
+                    &:hover {
+                        text-decoration: underline;
+                        color: red;
+                    }
+                }
+                .red a:nth-of-type(2) {
+                    color: red;
+                }
+                .la2 {
                     a {
-                        color: #999;
-                        &:hover {
-                            color: red;
-                            background: #cecece;
-                        }
+                        color: red;
                     }
                 }
-                .zhuanxiang {
-                    float: left;
-                    width: 230px;
-                    height: 100px;
-                    border-top: 1px solid #999;
-                    border-bottom: 1px solid #999;
-                    margin-top: 10px;
-                    span {
-                        display: inline-block;
-                        width: 100px;
-                        &:hover {
-                            color: red;
-                        }
+                .la1,
+                .la2,
+                .la3,
+                .la4 {
+                    border: 1px solid transparent;
+                    a {
+                        position: relative;
+                        top: -2px;
+                    }
+                    &:hover {
+                        background: #ffffff;
+                        border: 1px solid #cecece;
+                        border-bottom: 0;
                     }
                 }
-                .abc {
-                    float: left;
-                    margin-top: 10px;
-                    span {
-                        display: inline-block;
-                        width: 100px;
-                        &:hover {
-                            color: red;
-                        }
+                .la2,
+                .la3,
+                .la4 {
+                    &:hover {
+                        color: #000000;
                     }
+                }
+                .la4:hover .xiala {
+                    display: block;
                 }
             }
         }
