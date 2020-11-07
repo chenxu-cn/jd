@@ -3,38 +3,40 @@ $margin:0 auto;
 //头部
 header {
     width: $width;
-    height: 100px;
+    height: 80px;
     div {
-        width: 1238px;
-        height: 100px;
+        width: 990px;
+        height: 80px;
         margin: $margin;
-        background-color: #cecece;
         overflow: hidden;
         img {
-            margin-top: 20px;
-            width: 213px;
-            height: 65px;
+            margin-top: 10px;
+            width: 170px;
+            height: 60px;
             float: left;
         }
         b {
             float: left;
-            margin-top: 43px;
+            margin-top: 30px;
             display: block;
             margin-left: 30px;
             width: 120px;
             height: 30px;
-            font-size: 30px;
+            font-size: 25px;
             color: #3b3b3b;
         }
-        a {
+        span {
             float: right;
-            margin-top: 68px;
+            margin-top: 52px;
             display: block;
             width: 134px;
             height: 14px;
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
-            &:hover {
+            i {
+                color: red;
+            }
+            &:hover a {
                 text-decoration: underline;
                 color: red;
             }
@@ -45,39 +47,188 @@ header {
 //主体内容
 main {
     width: $width;
-    height: 48px;
+    height: 515px;
     .anquan {
-        width: 1238px;
-        height: 48px;
+        width: $width;
+        height: 38px;
         background-color: #fff8f0;
         margin: $margin;
+        font-size: 12px;
         text-align: center;
-        line-height: 48px;
+        line-height: 38px;
         color: #999;
-    }
-    nav {
-        margin: $margin;
-        width: 1238px;
-        height: 594px;
-        background: url(../image/login-banner.jpg) no-repeat center/cover;
-        overflow: hidden;
-        .login {
-            $width: 435px;
-            width: $width;
-            height: 532px;
-            margin-top: 13px;
-            float: right;
-            background-color: #fff;
-            .tishi {
-                width: $width;
-                height: 48px;
-                background-color: #fff8f0;
-            }
-            .login-q {
-                width: $width;
-                height: 68px;
-                border-bottom: 1px solid #f4f4f4;
+        i {
+            font-size: 16px;
+            position: relative;
+            top: 1px;
+        }
+        a {
+            color: #333333;
+            &:hover {
+                text-decoration: underline;
             }
         }
+    }
+    nav {
+        width: $width;
+        background-color: #b2010b;
+        .banner {
+            margin: $margin;
+            width: 990px;
+            height: 475px;
+            background: url(../image/login-banner.jpg) no-repeat center/cover;
+            overflow: hidden;
+            .login {
+                $width: 346px;
+                width: $width;
+                height: 436px;
+                margin-top: 10px;
+                float: right;
+                background-color: #fff;
+                .tishi {
+                    width: $width;
+                    height: 38px;
+                    background-color: #fff8f0;
+                    font-size: 12px;
+                    line-height: 38px;
+                    text-align: center;
+                    color: #999;
+                    i {
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+                .login-q {
+                    width: $width;
+                    height: 54px;
+                    span {
+                        color: #747474;
+                        width: 169px;
+                        height: 18px;
+                        font-size: 18px;
+                        margin-top: 12px;
+                        display: inline-block;
+                        text-align: center;
+                        border-right: 1px solid #f4f4f4;
+                        //点击颜色切换
+                        &:nth-of-type(1) {
+                            color: red;
+                        }
+                        &:hover {
+                            color: red;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .saoma {
+                    width: $width;
+                    height: 293px;
+                    border-top: 1px solid #f4f4f4;
+                    border-bottom: 1px solid #f4f4f4;
+                    img {
+                        width: 170px;
+                        height: 164px;
+                        margin-top: 20px;
+                        margin-left: 88px;
+                    }
+                    p {
+                        margin-top: 25px;
+                        margin-left: 88px;
+                        width: 170px;
+                        font-size: 12px;
+                        text-align: center;
+                        a {
+                            color: red;
+                        }
+                    }
+                    .mianshuru {
+                        display: inline-block;
+                        margin-top: 20px;
+                        margin-right: 18px;
+                        &:nth-of-type(1) {
+                            margin-left: 50px;
+                        }
+                        i {
+                            font-size: 25px;
+                            color: #999;
+                        }
+                        b {
+                            font-weight: 0;
+                            font-size: 12px;
+                            color: #999;
+                            position: relative;
+                            top: -5px;
+                        }
+                    }
+                }
+                .zhuce {
+                    width: $width;
+                    height: 50px;
+                    background-color: #fcfcfc;
+                    font-size: 12px;
+                    span {
+                        display: inline-block;
+                        margin-top: 15px;
+                        &:nth-of-type(1) {
+                            margin-left: 24px;
+                        }
+                        i {
+                            color: green;
+                        }
+                        &:nth-of-type(2) {
+                            margin: 0 5px;
+                        }
+                    }
+                    .tiaozhuan {
+                        float: right;
+                        margin-top: 15px;
+                        color: red;
+                        margin-right: 20px;
+                        i {
+                            margin-right: 2px;
+                            font-size: 18px;
+                        }
+                        b {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 底部
+footer {
+    width: $width;
+    height: 55px;
+    margin-top: 10px;
+    .daohang {
+        width: 990px;
+        margin: $margin;
+        height: 17.6px;
+        text-align: center;
+        li {
+            float: left;
+            color: #666;
+            font-size: 12px;
+            border-left: 1px solid #999;
+            &:nth-of-type(1) {
+                border: 0;
+                margin-left: 90px;
+            }
+            a {
+                margin: 0 10px;
+                &:hover {
+                    color: red;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .banquan {
+        font-size: 12px;
+        text-align: center;
+        margin: 10px 0;
     }
 }
