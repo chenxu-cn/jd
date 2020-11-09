@@ -21,6 +21,7 @@ gulp.task("copyHtml", done => {
     gulp.src("image/**").pipe(gulp.dest("dist/image")).pipe(connect.reload());
     gulp.src("*.html").pipe(gulp.dest("dist")).pipe(connect.reload());
     gulp.src("font/**").pipe(gulp.dest("dist/font")).pipe(connect.reload());
+    gulp.src("js/**").pipe(gulp.dest("dist/js")).pipe(connect.reload());
     done();
 });
 

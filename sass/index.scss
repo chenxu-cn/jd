@@ -1,5 +1,9 @@
 $width:100%;
 $margin:0 auto;
+body {
+    background-color: #e3e4e5;
+}
+
 //头部
 header {
     width: $width;
@@ -255,91 +259,277 @@ header {
             }
         }
     }
-    #sou {
-        width: 1190px;
+    // 头部搜索框集
+    #s {
+        width: $width;
         height: 140px;
-        margin: $margin;
-        background: yellow;
-        overflow: hidden;
-        position: relative;
-        img:nth-of-type(1) {
-            float: left;
-            width: 190px;
-            height: 120px;
-            margin-top: 10px;
-        }
-        img:nth-of-type(2) {
-            width: 190px;
-            height: 120px;
-            float: right;
-            margin-top: 10px;
-        }
-        //搜索盒子
-        .sou-a {
+        border-bottom: 1px solid #ddd;
+        background: #ffffff;
+        #sou {
             width: 1190px;
-            height: 60px;
-            position: absolute;
-            top: 0;
-            //搜索框
-            .sou-b {
-                width: 546px;
-                height: 32px;
-                border: 2px solid red;
+            height: 140px;
+            margin: $margin;
+            overflow: hidden;
+            position: relative;
+            img:nth-of-type(1) {
+                float: left;
+                width: 190px;
+                height: 120px;
+                margin-top: 10px;
+            }
+            img:nth-of-type(2) {
+                width: 190px;
+                height: 120px;
+                float: right;
+                margin-top: 10px;
+            }
+            //搜索盒子
+            .sou-a {
+                width: 1190px;
+                height: 60px;
                 position: absolute;
-                top: 25px;
-                left: 260px;
-                input {
-                    width: 425px;
-                    height: 26px;
-                    margin-left: 17px;
-                    margin-top: 2px;
-                    border: 0;
-                    margin-right: 5px;
-                }
-                a:nth-of-type(1) {
-                    position: relative;
-                    top: 2px;
-                }
-                a:last-of-type {
-                    display: inline-block;
-                    width: 58px;
+                top: 0;
+                //搜索框
+                .sou-b {
+                    width: 546px;
                     height: 32px;
-                    float: right;
+                    border: 2px solid red;
+                    position: absolute;
+                    top: 25px;
+                    left: 260px;
+                    input {
+                        width: 425px;
+                        height: 26px;
+                        margin-left: 17px;
+                        margin-top: 2px;
+                        border: 0;
+                        margin-right: 5px;
+                    }
+                    a:nth-of-type(1) {
+                        position: relative;
+                        top: 2px;
+                    }
+                    a:last-of-type {
+                        display: inline-block;
+                        width: 58px;
+                        height: 32px;
+                        float: right;
+                        position: relative;
+                        top: 1px;
+                        background: red;
+                        text-align: center;
+                        line-height: 32px;
+                        i {
+                            font-size: 22px;
+                        }
+                    }
+                }
+                .gouwuche {
+                    width: 130px;
+                    height: 34px;
+                    border: 1px solid #e3e4e5;
                     position: relative;
-                    top: 1px;
-                    background: red;
-                    text-align: center;
-                    line-height: 32px;
+                    top: 25px;
+                    left: 830px;
+                    line-height: 34px;
                     i {
-                        font-size: 22px;
+                        margin-left: 20px;
+                        margin-right: 13px;
+                        color: red;
+                    }
+                    a {
+                        font-size: 12px;
+                        color: red;
+                    }
+                    &:hover {
+                        border: 1px solid red;
                     }
                 }
             }
-            .gouwuche {
-                width: 130px;
-                height: 34px;
-                border: 1px solid #e3e4e5;
-                position: relative;
-                top: 25px;
-                left: 830px;
-                line-height: 34px;
-                i {
-                    margin-left: 20px;
-                    margin-right: 13px;
-                    color: red;
+            //收缩框下的nav
+            .nav-b {
+                overflow: hidden;
+                position: absolute;
+                left: 260px;
+                top: 65px;
+                width: 550px;
+                height: 20px;
+                line-height: 20px;
+                li {
+                    float: left;
+                    margin-right: 10px;
+                    &:nth-of-type(1) a {
+                        color: red;
+                    }
+                    a {
+                        font-size: 12px;
+                        color: #999;
+                        &:hover {
+                            color: red;
+                        }
+                    }
                 }
-                a {
-                    font-size: 12px;
-                    color: red;
-                }
-                &:hover {
-                    border: 1px solid red;
+            }
+            .nav-c {
+                position: absolute;
+                left: 203px;
+                bottom: 0;
+                height: 40px;
+                padding-top: 20px;
+                line-height: 40px;
+                li {
+                    float: left;
+                    margin: 0 11px;
+                    .red1,
+                    .red2 {
+                        color: red;
+                        font-weight: 700;
+                    }
+                    a {
+                        font-size: 15px;
+                        &:hover {
+                            color: red;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
+//主体内容
 main {
-    height: 2000px;
+    width: $width;
+    margin-top: 180px;
+    // border: 1px solid #000;
+    .bg {
+        background: url(../image/bg.png.webp)50% 0px no-repeat;
+        width: $width;
+        height: 710px;
+        .min {
+            width: 1190px;
+            height: 480px;
+            margin: $margin;
+            .left {
+                float: left;
+                width: 190px;
+                height: 450px;
+                background: #ffffff;
+                padding: 10px 0;
+                margin-right: 10px;
+                .li {
+                    width: 172px;
+                    height: 25px;
+                    padding-left: 18px;
+                    font-size: 14px;
+                    line-height: 25px;
+                    color: #333333;
+                    &:hover {
+                        background: #cecece;
+                    }
+                    &:hover .caidan {
+                        display: block;
+                    }
+                    a:hover {
+                        color: red;
+                    }
+                    .caidan {
+                        z-index: 2;
+                        width: 1000px;
+                        height: 470px;
+                        background: #ffffff;
+                        border: 1px solid #cecece;
+                        position: absolute;
+                        top: 260px;
+                        left: 355px;
+                        display: none;
+                        padding: 20px;
+                        box-sizing: border-box;
+                        #ul {
+                            width: 830px;
+                            height: 23px;
+                            li {
+                                float: left;
+                                background: #000;
+                                margin-right: 8px;
+                                &:hover {
+                                    background: red;
+                                }
+                                a {
+                                    padding: 0 10px;
+                                    font-size: 12px;
+                                    color: #ffffff;
+                                }
+                            }
+                        }
+                        #ul1 {
+                            margin-top: 5px;
+                            float: left;
+                            // height: 23px;
+                            border: 1px solid red;
+                            li {
+                                float: left;
+                                margin-right: 10px;
+                                a {
+                                    font-size: 12px;
+                                    color: #999;
+                                }
+                            }
+                            .lii {
+                                width: 80px;
+                                text-align: right;
+                                a {
+                                    color: #333333;
+                                }
+                            }
+                            .lic a {
+                                padding: 0 5px;
+                                color: red;
+                                background: rgb(238, 210, 210);
+                                border: 1px solid rgb(240, 143, 143)
+                            }
+                        }
+                        table {
+                            width: 200px;
+                            height: 120px;
+                            position: absolute;
+                            right: 0;
+                            top: 20px;
+                            td {
+                                height: 40px;
+                                background: url(../image/574c0755Nc8f19944.jpg.webp) no-repeat center/cover;
+                            }
+                        }
+                        img:nth-of-type(1) {
+                            width: 200px;
+                            height: 100px;
+                            position: absolute;
+                            right: 0;
+                            top: 160px;
+                        }
+                        img:nth-of-type(2) {
+                            width: 200px;
+                            height: 100px;
+                            position: absolute;
+                            right: 0;
+                            top: 265px;
+                        }
+                    }
+                }
+            }
+            //大轮播
+            .swiper-container {
+                width: 590px;
+                height: 470px;
+                border: 1px solid red;
+                float: left;
+                margin-left: auto;
+                margin-right: auto;
+                .swiper-slide {
+                    background-position: center;
+                    background-size: cover;
+                }
+            }
+        }
+    }
 }
