@@ -31,36 +31,55 @@
                     <div class="tishi"><i class="iconfont icontishi"></i>京东不会以任何理由要求您转账汇款，谨防诈骗。</div>
                     <div class="login-q">
                         <!-- 点击切换登录方式 -->
-                        <span>扫码登录</span>
-                        <span>账户登录</span>
+                        <span id="btn1">扫码登录</span>
+                        <span id="btn2">账户登录</span>
                     </div>
                     <div class="saoma">
-                        <img src="../image/erweima.jpg" alt="">
-                        <p>打开<a>手机京东</a>&nbsp;&nbsp; &nbsp;&nbsp;扫码二维码
-                        </p>
-                        <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>免输入</b></span>
-                        <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>更快</b></span>
-                        <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>更安全</b></span>
+                        <div class="saoma1">
+                            <img src="../image/erweima.jpg" alt="">
+                            <p>打开<a>手机京东</a>&nbsp;&nbsp; &nbsp;&nbsp;扫码二维码
+                            </p>
+                            <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>免输入</b></span>
+                            <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>更快</b></span>
+                            <span class="mianshuru"><i class="iconfont iconkuaisuyunxing01"></i>&nbsp;<b>更安全</b></span>
+                        </div>
+                        <div class="saoma2">
+                            <div class="username">
+                                <span class="iconfont icondenglu"></span>
+                                <input type="text" placeholder="邮箱/用户名/登录手机">
+
+                            </div>
+                            <div class="username">
+                                <span class="iconfont iconmima"></span>
+                                <input type="password" placeholder="密码">
+
+                            </div>
+
+                            <a href="#">忘记密码</a>
+                            <div class="denglu">
+                                登录
+                            </div>
+
+                        </div>
+
 
                     </div>
-
                     <div class="zhuce">
                         <span>
-                            <i class="iconfont iconQQ1"></i>
-                            QQ
-                        </span>
+                        <i class="iconfont iconQQ1"></i>
+                        QQ
+                    </span>
                         <span>|</span>
                         <span>
-                            <i class="iconfont iconweixin"></i>
-                            微信
-                        </span>
+                        <i class="iconfont iconweixin"></i>
+                        微信
+                    </span>
                         <div class="tiaozhuan">
                             <i class="iconfont iconchangyongicon-"></i>
                             <b>立即注册</b>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </nav>
     </main>
@@ -87,6 +106,22 @@
         </div>
 
     </footer>
+    <script src="../js/jquery-1.11.0.js"></script>
+    <script>
+        $("#btn1").click(function() {
+            $(".saoma1").css("display", "block");
+            $(".saoma2").css("display", "none");
+            $("#btn2").css("color", "#999")
+            $("#btn1").css("color", "red")
+        });
+        $("#btn2").click(function() {
+            $(".saoma1").css("display", "none");
+            $(".saoma2").css("display", "block");
+            $("#btn2").css("color", "red")
+            $("#btn1").css("color", "#999")
+        });
+        console.log($(".saoma2"));
+    </script>
 </body>
 
 </html>
