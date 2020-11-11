@@ -190,7 +190,7 @@ main {
                                 background: #cecece;
                             }
                             input {
-                                width: 250px;
+                                width: 150px;
                                 height: 20px;
                                 border: 0;
                                 position: relative;
@@ -211,8 +211,8 @@ main {
                             height: 35px;
                             background: red;
                             position: relative;
-                            top: 40px;
-                            left: 30px;
+                            top: 70px;
+                            left: -30px;
                             font-size: 20px;
                             color: #fff;
                             line-height: 35px;
@@ -247,7 +247,8 @@ main {
                             margin-right: 2px;
                             font-size: 18px;
                         }
-                        b {
+                        a {
+                            color: red;
                             float: right;
                         }
                     }

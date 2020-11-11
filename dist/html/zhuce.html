@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/zhuce.css">
+    <script src="../js/jquery-1.11.0.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div id="logo">
+            <a class="logotu" href="#"></a>
+            <div id="zuce">欢迎注册</div>
+            <div id="logo_yy">已有帐号？<a href="../html/login.html">请登录></a></div>
+
+        </div>
+    </div>
+    <!-- main-------- -->
+    <!-- 验证----- -->
+    <div id="main_xuanxiang">
+        <div id="main_xuanxiang_1">
+            <span>1</span>
+            <p>验证手机号</p>
+        </div>
+
+        <div id="main_xuanxiang_jiantou1"></div>
+        <div id="main_xuanxiang_2">
+            <span>2</span>
+            <p>填写账号信息</p>
+        </div>
+
+        <div id="main_xuanxiang_jiantou2"></div>
+
+        <div id="main_xuanxiang_3">
+            <span>3</span>
+            <p>注册成功</p>
+        </div>
+    </div>
+    <!-- 输入手机号 -->
+    <div id="main_main">
+        <div id="main_sj">
+            <label for="">中国 0086<a></a></label>
+            <div id="main_sj_hao">
+                <input class="ipt1" style="border: 0;" type="text" id="main_sj_hao_txt" placeholder="建议使用常用手机号"></input>
+                <span class="wrap" style="width: 30px;height: 10px;"></span>
+            </div>
+        </div>
+        <div id="main_box1">
+            <div id="main_dianji">
+                <input class="ipt2" type="password" placeholder="密码">
+            </div>
+        </div>
+
+        <div id="main_xiayibu"><input type="button" value="点击注册"> </div>
+
+
+        <script>
+            $("input:eq(0)").on("change", function() {
+                let username = $(".ipt1").val()
+                $.get("http://jx.xuzhixiang.top/ap/api/checkname.php", {
+                    username
+                }, data => {
+                    $(".wrap").text(data.msg)
+                })
+            })
+
+            $("input:eq(2)").on("click", function() {
+                let username = $(".ipt1").val();
+                let password = $(".ipt2").val();
+                $.get("http://jx.xuzhixiang.top/ap/api/reg.php", {
+                    username,
+                    password
+                }, data => {
+                    alert(data.msg);
+                    location.href = "../html/login.html";
+                })
+            })
+        </script>
+
+
+        <div id="main_footer">
+            <a class="A1" href="">
+                <i class="iconfont icondenglu"></i>企业用户注册
+            </a>
+            <a class="A2" href=""><i class="iconfont icondenglu"></i>海外用户注册</a>
+        </div>
+    </div>
+    <!-- footer---- -->
+    <div id="footer">
+        <a href="">关于我们</a>|
+        <a href="">联系我们</a>|
+        <a href="">人才招聘</a>|
+        <a href="">商家入驻</a>|
+        <a href="">广告服务</a>|
+        <a href="">手机京东</a>|
+        <a href="">友情链接</a>|
+        <a href="">销售联盟</a>|
+        <a href="">京东社区</a>|
+        <a href="">京东公益</a>|
+        <a href="">English Site</a>
+    </div>
+    <div id="copyright"> Copyright©2004-2020 京东JD.com 版权所有
+    </div>
+</body>
+
+</html>

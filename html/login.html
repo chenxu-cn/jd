@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../font/iconfont.css">
+    <script src="../js/jquery-1.11.0.js"></script>
+    <script src="../js/cookie.js"></script>
 </head>
 
 <body>
@@ -46,19 +48,45 @@
                         <div class="saoma2">
                             <div class="username">
                                 <span class="iconfont icondenglu"></span>
-                                <input type="text" placeholder="邮箱/用户名/登录手机">
+                                <input class="ipt1" type="text" placeholder="邮箱/用户名/登录手机">
 
                             </div>
                             <div class="username">
                                 <span class="iconfont iconmima"></span>
-                                <input type="password" placeholder="密码">
+                                <input class="ipt2" type="password" placeholder="密码">
 
                             </div>
 
                             <a href="#">忘记密码</a>
-                            <div class="denglu">
-                                登录
-                            </div>
+                            <input class="denglu" type="button" value="登录">
+
+                            <script>
+                                $(".denglu").on("click", function() {
+                                    let username = $(".ipt1").val()
+                                    let password = $(".ipt2").val()
+                                    $.get("http://jx.xuzhixiang.top/ap/api/login.php", {
+                                        username,
+                                        password
+                                    }, data => {
+                                        alert(data.msg);
+                                        console.log(data);
+                                        if (data.code == 1) {
+                                            location.href = "../index.html"
+                                        }
+                                        let uid = data.data.id;
+                                        console.log(uid);
+                                        let token = data.data.token;
+                                        Cookies.set("uid", uid, {
+                                            expires: 10
+                                        });
+                                        Cookies.set("token", token, {
+                                            expires: 10
+                                        });
+                                    })
+                                })
+
+                                $(".ipt2")
+                            </script>
 
                         </div>
 
@@ -76,7 +104,7 @@
                     </span>
                         <div class="tiaozhuan">
                             <i class="iconfont iconchangyongicon-"></i>
-                            <b>立即注册</b>
+                            <a href="../html/zhuce.html">立即注册</a>
                         </div>
                     </div>
                 </div>

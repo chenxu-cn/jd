@@ -405,7 +405,7 @@ main {
     .bg {
         background: url(../image/bg.png.webp)50% 0px no-repeat;
         width: $width;
-        height: 710px;
+        // height: 710px;
         .min {
             width: 1190px;
             height: 480px;
@@ -718,6 +718,7 @@ main {
                 background: url(../image/倒计时.png);
                 padding-top: 31px;
                 box-sizing: border-box;
+                float: left;
                 p:nth-of-type(1) {
                     width: 100%;
                     text-align: center;
@@ -747,7 +748,7 @@ main {
                         background: #000;
                         color: #fff;
                         position: relative;
-                        top: 5px;
+                        font-size: 16px;
                     }
                     b {
                         display: inline-block;
@@ -756,6 +757,41 @@ main {
                         line-height: 30px;
                         color: #fff;
                         font-weight: 500;
+                    }
+                }
+            }
+            .js-lb {
+                float: left;
+                width: 800px;
+                height: 260px;
+                background: url(../image/7.png)no-repeat center/cover;
+            }
+            .js-lb1 {
+                float: left;
+                width: 200px;
+                height: 260px;
+                background: #fff;
+                .swiper-container {
+                    width: 200px;
+                    height: 260px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    .swiper-slide {
+                        background-position: center;
+                        background-size: cover;
+                        /* Center slide text vertically */
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: -webkit-flex;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        -webkit-justify-content: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        -webkit-align-items: center;
+                        align-items: center;
                     }
                 }
             }
@@ -841,10 +877,10 @@ main {
             background: #fff;
             .tj {
                 width: 590px;
+                float: left;
                 height: 340px;
                 padding: 10px;
                 box-sizing: border-box;
-                background: yellow;
                 span {
                     display: inline-block;
                     float: left;
@@ -895,6 +931,120 @@ main {
                         font-size: 18px;
                         margin-left: 50px;
                     }
+                }
+                .you {
+                    position: relative;
+                    top: -265px;
+                    left: 180px;
+                    img {
+                        width: 370px;
+                        height: 265px;
+                    }
+                }
+            }
+            .sg {
+                width: 590px;
+                height: 340px;
+                float: right;
+                background: url(../image/5.png)no-repeat center/cover;
+            }
+        }
+    }
+    // 商品列表
+    .tj-box {
+        width: $width;
+        height: 45px;
+        .tj {
+            position: relative;
+            width: 1190px;
+            height: 45px;
+            margin: 20px auto;
+            img:nth-of-type(1) {
+                position: absolute;
+                left: 500px;
+                top: 15px;
+            }
+            img:nth-of-type(2) {
+                position: absolute;
+                left: 650px;
+                top: 15px;
+            }
+            h4 {
+                font-size: 28px;
+                height: 45px;
+                text-align: center;
+                line-height: 45px;
+                font-weight: 700;
+            }
+        }
+    }
+    .jx-box {
+        width: $width;
+        height: 60px;
+        .jx {
+            margin: 10px auto;
+            width: 1190px;
+            height: 60px;
+            padding-left: 40px;
+            box-sizing: border-box;
+            background: #fff;
+            li {
+                width: 180px;
+                height: 60px;
+                float: left;
+                text-align: center;
+                p {
+                    width: 80px;
+                    height: 27px;
+                    line-height: 27px;
+                    font-size: 16px;
+                    font-weight: 700px;
+                    margin-left: 50px;
+                    margin-top: 5px;
+                }
+                &:hover {
+                    color: red;
+                }
+                &:nth-of-type(1) p {
+                    background: red;
+                    color: #fff;
+                    border-radius: 15px;
+                }
+            }
+        }
+    }
+    .lb-box {
+        width: $width;
+        .lb {
+            width: 1200px;
+            height: 1000px;
+            border: 1px solid red;
+            margin: 10px auto;
+            li {
+                width: 230px;
+                height: 322px;
+                padding: 30px 15px;
+                box-sizing: border-box;
+                background: #fff;
+                img {
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 auto 20px;
+                }
+                p {
+                    width: 190px;
+                    height: 40px;
+                    font-size: 14px;
+                    color: #666;
+                    text-align: left;
+                    -webkit-transition: color .2s ease;
+                    transition: color .2s ease;
+                    word-break: break-all;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
                 }
             }
         }
