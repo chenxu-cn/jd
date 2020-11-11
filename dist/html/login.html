@@ -71,17 +71,20 @@
                                         alert(data.msg);
                                         console.log(data);
                                         if (data.code == 1) {
-                                            location.href = "../index.html"
+                                            location.href = "http://127.0.0.1:5500/jd/dist/index.html"
                                         }
                                         let uid = data.data.id;
                                         console.log(uid);
                                         let token = data.data.token;
-                                        Cookies.set("uid", uid, {
-                                            expires: 10
-                                        });
-                                        Cookies.set("token", token, {
-                                            expires: 10
-                                        });
+                                        // Cookies.set("uid", uid, {
+                                        //     expires: 10
+                                        // });
+                                        // Cookies.set("token", token, {
+                                        //     expires: 10
+                                        // });
+
+
+                                        // 44187
                                     })
                                 })
 

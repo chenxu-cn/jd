@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/xiangqing.css">
     <link rel="stylesheet" href="../font/iconfont.css">
+    <script src="../js/jquery-1.11.0.js"></script>
 </head>
 
 <body>
@@ -272,7 +273,7 @@
                 </div>
                 <div class="gouwuche">
                     <i class="iconfont icongouwuche"></i>
-                    <span>我的购物车 &nbsp;&nbsp;&nbsp;&nbsp;&gt;</span>
+                    <a href="../html/gouwuche.html">我的购物车 &nbsp;&nbsp;&nbsp;&nbsp;&gt;</a>
                 </div>
 
 
@@ -322,8 +323,10 @@
                         <img src="../image/fdj4.jpg" alt="">
                         <img src="../image/fdj5.jpg" alt="">
                     </div>
-
-
+                    <div class="odiv3"></div>
+                </div>
+                <div class="odiv2">
+                    <img src="../image/fdj1.jpg">
                 </div>
                 <div class="min-fdj">
                     <span><img src="../image/minfdj1.jpg" alt=""></span>
@@ -336,7 +339,15 @@
                 <div class="xq-w">
                     <img src="../image/2.png" alt="">
                     <img src="../image/3.png" alt="">
+
                 </div>
+                <div class="jiaru">
+                    <input id="ipt1" type="text" value="1">
+                    <input id="ipt2" type="button" value="+">
+                    <input id="ipt3" type="button" value="-">
+                    <input id="ipt4" type="button" value="加入购物车"></input>
+                </div>
+
             </div>
 
 
@@ -345,8 +356,61 @@
 </body>
 
 <!-- js -->
+<script>
+    let obj = new URLSearchParams(location.search);
+    let id = obj.get("data-pid");
+
+    $.get("http://jx.xuzhixiang.top/ap/api/detail.php", {
+        id
+    }, data => {
+        let str = ``
+        str += `
+    <img src="${data.data.pimg}" alt=""> `
+        $(".fdj-b").html(str);
+
+    })
+
+
+    // 加入购物车
+
+    let pid = id;
+    let uid = 44187;
+    $("#ipt1").on("change", function() {
+        let pnum = $(this).val();
+        console.log(pnum);
+    })
+    $("#ipt4").on("click", function() {
+        let pnum = $("#ipt1").val();
+        console.log(pnum);
+        $.get("http://jx.xuzhixiang.top/ap/api/add-product.php", {
+            uid,
+            pid,
+            pnum
+        }, data => {
+            alert(data.msg)
+
+            console.log(data);
+        })
+    })
+</script>
+
+
+
+
 <script src="../js/jquery-1.11.0.js"></script>
 <script>
+    var int1 = document.getElementById("ipt1");
+    var int2 = document.getElementById("ipt2")
+    var int3 = document.getElementById("ipt3")
+    int2.onclick = function() {
+        int1.value++
+    }
+    int3.onclick = function() {
+        int1.value--
+    }
+
+
+
     $(".min-fdj span").eq(0).mouseenter(function() {
         $(".fdj-b").css("top", 0);
     })
@@ -361,6 +425,43 @@
     })
     $(".min-fdj span").eq(4).mouseenter(function() {
         $(".fdj-b").css("top", -1400);
+    })
+
+
+
+    $(".fdj").hover(function() {
+        $(".odiv2").toggle();
+
+    })
+
+    $(".fdj").mouseenter(function() {
+        $(".odiv3").show();
+    }).mouseleave(function() {
+        $(".odiv3").hide();
+    }).mousemove(function(ev) {
+        var t = ev.pageY - $(this).offset().top - 50
+        var l = ev.pageX - $(this).offset().left - 50
+        if (l <= 0) {
+            l = 0;
+        }
+        if (l >= 250) {
+            l = 250;
+        }
+        if (t <= 0) {
+            t = 0;
+        }
+        if (t >= 250) {
+            t = 250
+        }
+        $(".odiv3").css({
+            left: l,
+            top: t,
+
+        })
+        $(".odiv2 img").css({
+            left: -4 * l,
+            top: -4 * t,
+        })
     })
 </script>
 

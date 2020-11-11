@@ -4,11 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>购物车</title>
     <link rel="stylesheet" href="../css/gouwuche.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-1.11.0.js"></script>
 </head>
 
 <body>
+    <header>
+        <div class="tou">
+            <img src="../image/logo-login.png" alt="">
+            <div class="sou">
+                <input type="text">
+                <span>搜索</span>
+            </div>
+        </div>
+        <div class="sp">
+            <h4>全部商品</h4>
+            <a href="../index.html">返回首页</a>
+        </div>
+        <div class="biao">
+            <span>
+                 <input class="quanxuan" type="checkbox">全选
+            </span>
+            <span>商品</span>
+            <span>单价</span>
+            <span>数量</span>
+            <span>小计</span>
+            <span>操作</span>
+
+        </div>
+        <ul class="pp">
+            <li>
+                <input class="ipt1" type="checkbox">
+                <a href=""><img src="../image/logo-login.png" alt=""></a>
+                <span>筋膜枪</span>
+                <span>100.00</span>
+                <input class="ipt2" type="button" value="删除">
+            </li>
+        </ul>
+
+    </header>
+
+
+
+    <script>
+        let id = 44187;
+        $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
+            id
+        }, data => {
+            let str = ``
+            data.data.forEach(element => {
+                str += `      
+                <li>                         
+                <input class="ipt1" type="checkbox">
+                <a href="../xiangqing.html?data-pid=${element.pid}">
+                <img src="${element.pimg}" alt="图片加载失败"></a>
+                <span>商品名称：${element.pname}</span>
+                <span>商品单价：${element.pprice}</span>
+                <span>商品数量：${element.pnum}</span>
+                <span>小计：${element.pnum*element.pprice}.00</span>
+                <input class="ipt2" data-pid=${element.pid} type="button" value="删除">
+                </li>
+                `
+                $(".pp").html(str)
+            });
+        });
+        $("ul").on("click", "li .ipt2", function() {
+            let uid = 44187;
+            let pid = $(this).attr("data-pid")
+            console.log(pid);
+            $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", {
+                uid,
+                pid
+            }, data => {
+                $(this).parent().remove();
+
+            });
+        });
+        $(".quanxuan").on("click", function() {
+            var qx = $(".quanxuan").prop("checked");
+            $(".ipt1").prop("checked", qx)
+        })
+        $("ul").on("click", "li .ipt1", function() {
+            var xx = $("li .ipt1:checked").length;
+            var quan = $("li .ipt1").length;
+            $(".quanxuan").prop("checked", xx == quan);
+        })
+    </script>
 
 </body>
 

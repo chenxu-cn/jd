@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="font/iconfont.css">
+    <script src="./js/jquery-1.11.0.js"></script>
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
@@ -823,12 +824,46 @@
         </div>
         <div class="lb-box">
             <div class="lb">
-                <ul class="libiao">
-                    <li>
+                <ul class="liebiao">
+                    <!-- <li>
                         <img src="./image/lb.jpg.webp" alt="">
                         <p>六福珠宝 足金简约黄金戒指女款素圈闭口戒 计价 B01TBGR0029 12号-约1.40克</p>
-                    </li>
+                    </li> -->
+
+
                 </ul>
+
+
+                <script>
+                    let uid = 44187;
+
+                    $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+                        uid
+                    }, data => {
+
+                        console.log(data.data)
+                        let str = ``
+                        data.data.forEach(element => {
+                            str += `
+                    
+                        <li> 
+                     
+                       <a href="./html/xiangqing.html?data-pid=${element.pid}"><img src = "${element.pimg}" alt = "图片加载不出来"></a>   
+                           
+                         <p>商品名字: ${element.pname}</p>
+                       <span>商品价格: ${element.pprice}</span>
+                       <p>描述:${element.pdesc}</p>
+                   </li>
+                        `
+                            $(".liebiao").html(str)
+                        });
+                    })
+                </script>
+
+
+
+
+
             </div>
         </div>
 

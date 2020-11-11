@@ -1,0 +1,79 @@
+header {
+    width: 100%;
+    .tou {
+        width: 990px;
+        height: 87px;
+        margin: 0 auto;
+        img {
+            float: left;
+            margin-top: 10px;
+        }
+        .sou {
+            float: right;
+            width: 400px;
+            height: 50px;
+            margin-top: 30px;
+            input {
+                float: left;
+                width: 300px;
+                height: 30px;
+                border: 1px solid #c91623;
+            }
+            span {
+                float: left;
+                display: inline-block;
+                width: 60px;
+                height: 30px;
+                border: 2px solid #c91623;
+                background: #c91623;
+                text-align: center;
+                line-height: 30px;
+                color: #ffffff;
+            }
+        }
+    }
+    .sp {
+        width: 990px;
+        height: 40px;
+        margin: 0 auto;
+        line-height: 40px;
+        h4 {
+            float: left;
+            color: #e2231a;
+            font-weight: 700;
+        }
+        a {
+            float: right;
+        }
+    }
+    .biao {
+        width: 990px;
+        height: 40px;
+        margin: 0 auto;
+        line-height: 40px;
+        background: #f3f3f3;
+    }
+    .pp {
+        width: 990px;
+        margin: 0 auto;
+        li {
+            width: 100%;
+            height: 137px;
+            padding-top: 10px;
+            border-top: 2px solid #999999;
+            background: #fff4e8;
+            .ipt1 {
+                float: left;
+            }
+            img {
+                float: left;
+                width: 100px;
+                height: 100px;
+                margin-left: 50px;
+            }
+            .ipt2 {
+                float: right;
+            }
+        }
+    }
+}

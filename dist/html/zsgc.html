@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品储存</title>
+    <style>
+        #add {
+            width: 300px;
+            height: 120px;
+            border: solid 1px black;
+        }
+        
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>下面就是我的商品</h1>
+    <!-- <button>点我</button> -->
+    <div id="add">
+        <input type="text" placeholder="商品地址" class="ipt1"><br>
+        <input type="text" placeholder="商品名字" class="ipt2"><br>
+        <input type="text" placeholder="商品价格" class="ipt3"><br>
+        <input type="text" placeholder="商品描述" class="ipt4"><br>
+        <input type="button" value="添加商品" class="btn">
+    </div>
+    <ul></ul>
+    <script src="../js/jquery-1.11.0.js"></script>
+    <script src="../js/cokie.js"></script>
+    <script>
+        let uid = 44187;
+
+        console.log(uid);
+        Prolists();
+        addProlist();
+        deleProlist();
+
+        //展示
+        function Prolists() {
+
+            $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+                uid
+            }, data => {
+
+                console.log(data.data)
+                let str = ``
+                data.data.forEach(element => {
+                    str += `
+                <li> 
+             
+              <p> <img src = "${element.pimg}" alt = "图片加载不出来"> </p>  
+                   <p>商品名字: ${element.pdesc}</p>
+                 <p>商品描述: ${element.pname}</p>
+               <p>商品价格: ${element.pprice}</p>
+             
+               <button class = "btn" data-pid = "${element.pid}">删除</button>
+               <a      href  = "./修改.html?data-pid=${element.pid}">修改</a>
+           </li>
+           <br>
+           <br>
+                `
+                    $("ul").html(str)
+                });
+            })
+        }
+
+        //添加addprolist
+        function addProlist() {
+
+
+            $(".btn").on("click", function() {
+                let pimg = $(".ipt1").val();
+                let pname = $(".ipt2").val();
+                let pprice = $(".ipt3").val();
+                let pdesc = $(".ipt4").val();
+                console.log(pimg, pname, pprice, pdesc);
+
+                $.post("http://jx.xuzhixiang.top/ap/api/goods/goods-add.php", {
+                    pimg,
+                    pdesc,
+                    pprice,
+                    pname,
+                    uid
+                }, data => {
+                    console.log(data);
+                    alert(data.msg);
+                    Prolists();
+                })
+            })
+
+        }
+
+        //删除商品deleProlist
+        function deleProlist() {
+            $("ul").delegate(".btn", "click", function() {
+                let pid = $(this).attr("data-pid")
+                console.log(pid)
+                $.get("http://jx.xuzhixiang.top/ap/api/goods/goods-delete.php", {
+                    uid,
+                    token,
+                    pid
+                }, data => {
+                    alert(data.msg)
+                    Prolists()
+                })
+            })
+        }
+    </script>
+    <script>
+        $.get("http://jx.xuzhixiang.top/ap/api/goods/goods-add.php", {
+            pimg: "https://gitee.com/master-fu/dashboard/projects",
+            pname: "sfsdf",
+            pdesc: "dfsdfs",
+            pprice: "78"
+        }, data => {
+            console.log(data)
+        })
+    </script>
+</body>
+
+</html>

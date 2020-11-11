@@ -414,11 +414,41 @@ main {
             .fdj {
                 width: 350px;
                 height: 350px;
+                position: relative;
                 border: 1px solid #cecece;
                 margin-bottom: 20px;
                 overflow: hidden;
                 .fdj-b {
                     position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .odiv3 {
+                    width: 100px;
+                    height: 100px;
+                    background-color: bisque;
+                    opacity: 0.5;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                }
+            }
+            .odiv2 {
+                display: none;
+                width: 350px;
+                height: 350px;
+                border: solid 1px black;
+                position: absolute;
+                left: 510px;
+                top: 335px;
+                overflow: hidden;
+                z-index: 9;
+                img {
+                    width: 1480px;
+                    height: 1500px;
+                    position: absolute;
                 }
             }
             //小放大镜
@@ -447,6 +477,36 @@ main {
                 img {
                     width: 590px;
                 }
+            }
+        }
+        .jiaru {
+            width: 200px;
+            height: 100px;
+            // border: 1px solid red;
+            input[type=text] {
+                width: 50px;
+                height: 50px;
+            }
+            input:nth-of-type(2) {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                top: -15px;
+            }
+            input:nth-of-type(3) {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                top: 10px;
+                left: -25px;
+            }
+            input:nth-of-type(4) {
+                display: inline-block;
+                border: 0;
+                width: 80px;
+                height: 50px;
+                background: red;
+                line-height: 50px;
             }
         }
     }
