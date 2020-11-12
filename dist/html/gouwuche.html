@@ -21,6 +21,7 @@
         </div>
         <div class="sp">
             <h4>全部商品</h4>
+            <a href="../html/gouwuche.html">返回列表页</a>
             <a href="../index.html">返回首页</a>
         </div>
         <div class="biao">
@@ -58,7 +59,7 @@
                 str += `      
                 <li>                         
                 <input class="ipt1" type="checkbox">
-                <a href="../xiangqing.html?data-pid=${element.pid}">
+                <a href="../html/xiangqing.html?data-pid=${element.pid}">
                 <img src="${element.pimg}" alt="图片加载失败"></a>
                 <span>商品名称：${element.pname}</span>
                 <span>商品单价：${element.pprice}</span>
@@ -81,7 +82,9 @@
                 pid
             }, data => {
                 $(this).parent().remove();
-
+                var xx = $("li .ipt1:checked").length;
+                var quan = $("li .ipt1").length;
+                $(".quanxuan").prop("checked", xx == quan);
             });
         });
 

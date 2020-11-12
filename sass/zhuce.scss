@@ -55,7 +55,6 @@ body {
     height: 54.8px;
     margin: 80px auto 0;
     position: relative;
-    // background-color: white;
     @mixin G {
         height: 54.8px;
         float: left;
@@ -67,7 +66,6 @@ body {
             width: 24px;
             height: 24px;
             line-height: 24px;
-            background-image: url(../image/b3c7e48f-8dc3-47ce-a11e-dc6bb388bc6d.png);
             background-position: 0px -200px;
             font-size: 12px;
             font-weight: 700;
@@ -122,7 +120,6 @@ body {
     #main_xuanxiang_jiantou1 {
         width: 124px;
         height: 10px;
-        background-image: url(../image/b3c7e48f-8dc3-47ce-a11e-dc6bb388bc6d.png);
         background-position: 0 -100px;
         position: absolute;
         top: 7px;
@@ -131,7 +128,6 @@ body {
     #main_xuanxiang_jiantou2 {
         width: 124px;
         height: 10px;
-        background-image: url(../image/b3c7e48f-8dc3-47ce-a11e-dc6bb388bc6d.png);
         background-position: 0 -100px;
         position: absolute;
         top: 7px;
@@ -149,8 +145,6 @@ body {
     #main_sj {
         width: 400px;
         height: 86px;
-        // color: #666;
-        // background-color: wheat;
         margin: 0 auto;
         label {
             border-top: 1px solid rgb(221, 221, 221);
@@ -169,7 +163,6 @@ body {
             a {
                 width: 15px;
                 height: 15px;
-                background: url(../image/ffbe5de9-9182-4775-8b4d-2bb0d4e1766a.png) no-repeat;
                 width: 15px;
                 height: 15px;
                 display: inline-block;
@@ -267,7 +260,6 @@ body {
                 display: inline-block;
                 width: 26px;
                 height: 26px;
-                background-image: url(../image/b3c7e48f-8dc3-47ce-a11e-dc6bb388bc6d.png);
                 background-position: 0 -160px;
                 vertical-align: middle;
                 margin: 0 8px 2px 0;
@@ -285,7 +277,6 @@ body {
                 display: inline-block;
                 width: 26px;
                 height: 26px;
-                background-image: url(../image/b3c7e48f-8dc3-47ce-a11e-dc6bb388bc6d.png);
                 background-position: -40px -160px;
                 margin: 0 8px 2px 0;
                 vertical-align: middle;
