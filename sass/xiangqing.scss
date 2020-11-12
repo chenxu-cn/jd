@@ -408,7 +408,6 @@ main {
         .xq {
             width: 1210px;
             height: 848.925px;
-            border: 1px solid red;
             margin: 10px auto;
             //放大镜
             .fdj {
@@ -426,6 +425,7 @@ main {
                     }
                 }
                 .odiv3 {
+                    display: none;
                     width: 100px;
                     height: 100px;
                     background-color: bisque;

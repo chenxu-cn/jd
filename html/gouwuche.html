@@ -70,9 +70,11 @@
                 $(".pp").html(str)
             });
         });
+
+        //删除
         $("ul").on("click", "li .ipt2", function() {
             let uid = 44187;
-            let pid = $(this).attr("data-pid")
+            let pid = $(this).attr("data-pid") //设置、返回被选元素属性值
             console.log(pid);
             $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", {
                 uid,
@@ -82,6 +84,8 @@
 
             });
         });
+
+        //全选
         $(".quanxuan").on("click", function() {
             var qx = $(".quanxuan").prop("checked");
             $(".ipt1").prop("checked", qx)

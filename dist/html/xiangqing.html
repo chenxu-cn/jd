@@ -367,7 +367,7 @@
         str += `
     <img src="${data.data.pimg}" alt=""> `
         $(".fdj-b").html(str);
-
+        $(".odiv2").html(str);
     })
 
 
@@ -399,6 +399,7 @@
 
 <script src="../js/jquery-1.11.0.js"></script>
 <script>
+    // 输入框加减
     var int1 = document.getElementById("ipt1");
     var int2 = document.getElementById("ipt2")
     var int3 = document.getElementById("ipt3")
@@ -433,7 +434,6 @@
         $(".odiv2").toggle();
 
     })
-
     $(".fdj").mouseenter(function() {
         $(".odiv3").show();
     }).mouseleave(function() {
